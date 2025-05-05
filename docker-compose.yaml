@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  spark:
+    image: jupyter/pyspark-notebook:latest
+    container_name: pyspark-notebook
+    ports:
+      - "8888:8888"
+    environment:
+      - SPARK_MASTER=local[*]
+      - PYSPARK_PYTHON=python3
+    volumes:
+      - .:/home/jovyan/work
+    mem_limit: 2g
